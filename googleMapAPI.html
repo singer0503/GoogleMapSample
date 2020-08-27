@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Simple Map</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPJpjD-qcR_yIxJnS8maR5W9KB0E3EzYI&callback=initMap"
+      defer
+    ></script>
+    <script>
+      let map;
+
+      function initMap() {
+        var position = {
+          lat: 25.047108,
+          lng: 121.542761,
+        };
+
+        map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 18,
+          center: position,
+        });
+
+        var googleLangs1 = new google.maps.LatLng("25.047108", "121.542761");
+        var googleLangs2 = new google.maps.LatLng("25.046939", "121.54254");
+
+        var marker = new google.maps.Marker({
+          position: googleLangs1,
+          map: map,
+          animation: google.maps.Animation.BOUNCE
+        });
+        var marker2 = new google.maps.Marker({
+          position: googleLangs2,
+          map: map,
+          animation: google.maps.Animation.DROP
+        });
+      }
+    </script>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 70%;
+        width: 70%;
+      }
+
+      /* Optional: Makes the sample page fill the window. */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <h3>間單的 Google Map API 範例</h3>
+  <body>
+    <div id="map"></div>
+  </body>
+</html>
